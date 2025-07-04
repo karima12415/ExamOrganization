@@ -1,6 +1,6 @@
 # Exam Organization System
 
-A graduation project aimed at designing and developing a comprehensive information system for organizing and monitoring exams at the **Faculty of Exact Sciences and Computer Science – University of Chlef (UHBC)**.
+A graduation project aimed at designing and developing a comprehensive information system for organizing and monitoring exams. 
 
 ---
 
