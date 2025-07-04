@@ -1,0 +1,736 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --color-container: #f7faffdf;
+  --color-lamp: #131310;
+  --color-text: #2d2e5add;
+  --color-blue1: #0d3d99;
+  --color-blue2: #0252d1;
+  --color-blue3: #c9d5e8;
+  --color-green: #b6f318;
+  --color-1: #f5f8f1;
+  --color-2: #f3f5f8;
+  --color-3: #e4e4e3;
+  --color-white: #ffff;
+  --color-letblue: #e3f2fd;
+}
+
+body.dark-mode {
+  --color-container: #2d2f32;
+  --color-lamp: #ffff00;
+  --color-text: #ffffff;
+  --color-blue1: #3454b3;
+  --color-blue2: #1568ee;
+  --color-blue3: #6d7b91;
+  --color-green: #b6f318;
+  --color-1: #7a7b7d;
+  --color-2: #6f7378;
+  --color-3: #3d4045;
+  --color-white: #888b8e;
+  color: var(--color-text);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--color-3);
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.dashboard:is(.active) {
+  grid-template-columns: 5% 95%;
+}
+
+.sidebar {
+  background-color: var(--color-3);
+  height: 100vh;
+  /*100%;*/
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 18px;
+}
+
+.logo img {
+  width: 75px;
+  margin-top: 10px;
+}
+
+.dashboard:is(.active) h1 {
+  font-size: 0;
+}
+
+.dashboard:is(.active) img {
+  width: 50px;
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 25px;
+  transition: 300ms;
+}
+
+.danger {
+  padding-left: 5px;
+  color: var(--color-blue1);
+}
+
+.sidebar ul li a {
+  display: flex;
+  padding: 18px 24px;
+  border-left: 3px solid transparent;
+  transition: 300ms;
+  gap: 10px;
+}
+
+.dashboard:is(.active) .sidebar ul li a span {
+  font-size: 0;
+}
+
+.dashboard:is(.active) .sidebar ul li a {
+  padding: 18px 24px;
+}
+
+.sidebar ul li a:is(:hover, .active) {
+  border-color: var(--color-blue2);
+  background-color: var(--color-2);
+}
+
+.sidebar ul li a i {
+  color: var(--color-blue2);
+}
+
+.body-dash {
+  background-color: var(--color-white);
+  padding-inline: 30px;
+  padding-top: 10px;
+}
+
+.navigation {
+  display: flex;
+  background-color: var(--color-3);
+  border-radius: 10px;
+  height: 50px;
+  justify-content: space-between;
+}
+
+.body-dash .navigation .btn {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+.nav-settings .btn1 {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 12px;
+}
+
+.btn1 .fa-lightbulb {
+  color: var(--color-lamp);
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+h2 {
+  color: var(--color-blue2);
+  padding: 12px 0;
+  font-size: 24px;
+}
+
+/*css of home page________________________________________________________________________________*/
+.card {
+  background: var(--color-blue3);
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 5px;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.384);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/*css of university page______________________________________________________________________________*/
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 15px;
+  gap: 15px;
+}
+
+.input-group {
+  position: relative;
+  margin: 20px 0;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--color-text);
+  padding: 0 5px;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.input-group input {
+  width: 400px;
+  height: 40px;
+  font-size: 16px;
+  color: #000;
+  padding: 0 10px;
+  background: transparent;
+  border: 1.2px solid var(--color-text);
+  outline: none;
+  border-radius: 5px;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label {
+  top: 0;
+  font-size: 12px;
+  background: var(--color-blue3);
+  color: var(--color-white);
+  padding: 2px 5px;
+  display: inline;
+  border-radius: 4px;
+}
+
+.input-group .input-file {
+  color: var(--color-blue1);
+  font-size: 15px;
+  padding: 10px;
+}
+/*eye_____________*/
+.input-group_eye{
+  position: relative;
+  margin: 20px 0;
+}
+
+.input-group_eye input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-group_eye input:focus {
+    border-color: var(--color-blue2);
+    outline: none;
+}
+
+.input-group_eye label {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 14px;
+    color: var(--color-white);
+    background: var(--color-blue3);
+    border-radius: 4px;
+    padding: 2px 5px;
+}
+/*_________________*/
+.btn-submit {
+  font-size: 16px;
+  padding: 10px;
+  width: 100px;
+  margin-top: 18px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--color-blue2);
+  color: var(--color-white);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-submit:hover {
+  background-color: var(--color-blue1);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  background-color: var(--color-2);
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.table thead {
+  border-bottom: 2px solid black;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+.table tbody tr:hover {
+  background-color: var(--color-container);
+}
+
+/*editUniv css*/
+.logo-preview {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+/*css of faculty page________________________________________________________________________________*/
+.btn-submitF {
+  font-size: 16px;
+  width: 100px;
+  height: 40px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--color-blue2);
+  color: var(--color-white);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-submitF:hover {
+  background-color: var(--color-blue1);
+}
+
+/*css edit button___________________________________________________________________________________*/
+.btn-back {
+  font-size: 16px;
+  padding: 10px;
+  width: 100px;
+  margin-top: 18px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--color-green);
+  color: var(--color-lamp);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/*css select page ______________________________________________________________________________________*/
+.navigationS {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-blue3);
+  padding: 10px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logoS {
+  display: flex;
+  align-items: center;
+}
+
+.logoS img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.logoS h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logoS .danger {
+  padding-left: 5px;
+  color: var(--color-blue1);
+}
+
+.navigationS li {
+  list-style: none;
+}
+
+.navigationS a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 24px;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.bodySelect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 55px;
+}
+
+.cartpage {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 400px;
+}
+
+.cartpage h1 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: var(--color-text);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+select {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--color-blue3);
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+select:focus {
+  border-color: var(--color-blue2);
+  outline: none;
+}
+
+/*css homeAD2.php page ______________________________________________________________________________________*/
+.navigationW {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-white);
+  height: 100px;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);*/
+}
+
+.imglogo img {
+  width: 80px;
+  height: 80px;
+  margin: 20px;
+}
+
+.infoselcted {
+  flex: 2;
+  text-align: center;
+}
+
+.infoselcted h3,
+.infoselcted h4,
+.infoselcted h5,
+.infoselcted h6 {
+  margin: 3px 0;
+  color: var(--color-lamp);
+}
+
+.infoselcted h3 {
+  font-size: 1.5em;
+}
+
+.infoselcted h4 {
+  font-size: 1.2em;
+}
+
+.infoselcted h5,
+.infoselcted h6 {
+  font-size: 1em;
+}
+
+.container_homeAD2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+}
+
+.text_cont {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.img_cont img {
+  flex: 1;
+  text-align: right;
+  border-radius: 12px;
+}
+
+.text_cont p {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 1.2rem;
+  line-height: 1.4;
+}
+
+.container_homeAD2 span {
+  color: var(--color-blue2);
+  font-weight: 700;
+  margin: 0 5px;
+  font-size: 1.1em;
+}
+
+.btn_cont {
+  display: flex;
+  gap: 15px;
+  margin-top: 60px;
+}
+
+.btn_profile,
+.btn_addOrg {
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn_profile {
+  background-color: var(--color-blue2);
+  color: var(--color-white);
+}
+
+.btn_profile:hover {
+  background-color: var(--color-green);
+  color: var(--color-white);
+}
+
+.btn_addOrg {
+  background-color: var(--color-text);
+  color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn_addOrg:hover {
+  background-color: var(--color-blue3);
+  color: var(--color-text);
+}
+
+/*css of  organ.php______________________________________________________________________________________*/
+.card_flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.card_org {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--color-2);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.card_org img {
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.card_org h3 {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.formP {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-2);
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 90%;
+  margin: 20px;
+  margin-left: 250px;
+  padding: 10px;
+}
+
+.alert {
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 5px;
+  position: fixed;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  width: fit-content;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.alert-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/*timetable css____________________________________________________________________________________________________*/
+.body_timetable {
+  display: flex;
+  height: 100%;
+  min-height: 100vh;
+  gap: 10px;
+  background-color: var(--color-2);
+}
+
+.container_timetable {
+  max-width: 90%;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: var(--color-container);
+  border-radius: 10px;
+  color: var(--color-lamp);
+}
+
+.container_timetable h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: var(--color-blue2);
+}
+
+/* The schedule container shows all day sessions in a responsive grid */
+#scheduleContainer {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+/* Each day-session is a card representing a timetable session */
+.day-session {
+  background-color: var(--color-white);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: var(--color-lamp);
+  transition: box-shadow 0.3s ease;
+}
+
+.day-session:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Session date/time heading */
+.day-session h4 {
+  margin: 0 0 10px;
+  font-weight: 700;
+  color: var(--color-blue2);
+}
+
+/* Select inputs styles in timetable cards */
+.day-session select {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid var(--color-3);
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--color-lamp);
+  background-color: var(--color-letblue);
+  transition: border-color 0.3s ease;
+}
+
+.day-session select:focus {
+  border-color: var(--color-blue1);
+  outline: none;
+}
+
+/* Confirm button style */
+.day-session button {
+  background: var(--color-green);
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 700;
+  color: var(--color-lamp);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.day-session button:hover {
+  background-color: #9dd20a;
+}
+
+/* Confirmed schedules section */
+#confirmedSchedules {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: var(--color-1);
+  border-radius: 10px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+  color: var(--color-lamp);
+}
+
+#confirmedSchedules h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--color-blue2);
+  text-align: center;
+}
+
+.confirmed-item {
+  background-color: var(--color-white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: var(--color-lamp);
+  font-weight: 600;
+}

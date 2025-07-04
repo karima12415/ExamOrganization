@@ -1,0 +1,409 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+:root {
+    --color-bg-body: #f5f8f1;
+    --color-bg1-login: #f3f5f8;
+    --color-bg2-login: #e4e4e3;
+    --color-butt-border: #0d3d99;
+    --color-blue3: #c9d5e8;
+    --color-h: #253045;
+    --color-bg: #0252d1;
+    --color-secnd-butt: #b6f318;
+    --color-h1: #000000;
+    --color-mode-n: #0d3d99;
+    --color-label: #222121;
+    --color-white: #ffff;
+}
+
+body {
+    background-color: var(--color-blue3);
+    color: #333;
+    line-height: 1.6;
+}
+
+.search-container {
+    margin: 20px 0;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.search-box {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 10px 15px;
+    padding-right: 40px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--color-butt-border);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.search-box button {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #7f8c8d;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-box button:hover {
+    color: var(--color-butt-border);
+}
+
+.clear-search {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: var(--color-secnd-butt);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.clear-search:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--color-h);
+}
+
+/* قائمة المستخدمين */
+.users-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.user-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.user-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.user-header h3 {
+    color: var(--color-bg);
+}
+
+.user-details p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.user-details i {
+    margin-left: 8px;
+    color: #7f8c8d;
+}
+
+/* شارات الأدوار */
+.role-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.role-badge.organizer {
+    background-color: #e0f7fa;
+    color: var(--color-butt-border);
+}
+
+/*
+.users-grid .role-badge.teacher {
+    background-color: #e8f5e9;
+}
+*/
+.users-grid .role-badge.admin {
+    background-color: #f3e5f5;
+    color: #8e24aa;
+}
+
+.no-users {
+    text-align: center;
+    grid-column: 1 / -1;
+    color: #7f8c8d;
+    padding: 20px;
+}
+
+
+.add-user-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 25px;
+    background-color: var(--color-butt-border);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-user-btn:hover {
+    background-color: var(--color-bg);
+}
+
+.add-user-btn i {
+    margin-left: 8px;
+}
+
+.add-user-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--color-h);
+}
+
+.form-group {
+    position: relative;
+    width: 100%;
+    margin: 12px 0;
+}
+
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #333;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: .5%;
+}
+
+.form-group input {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    color: #333;
+    padding: 0 10px;
+    background: transparent;
+    border: 1px solid #333;
+    outline: none;
+    border-radius: 5px;
+}
+
+.form-group input:focus {
+    border-color: var(--color-butt-border);
+    box-shadow: 0 0 8px rgba(13, 62, 153, 0.505);
+}
+
+.form-group input:focus~label,
+.form-group input:valid~label {
+    top: 0;
+    font-size: 12px;
+    background: #fff;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.cancel-btn,
+.submit-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cancel-btn {
+    background-color: var(--color-secnd-butt);
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: var(--color-bg);
+}
+
+.submit-btn {
+    background-color: var(--color-butt-border);
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: var(--color-bg);
+}
+
+.delete-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: var(--color-bg);
+}
+
+[dir="rtl"] {
+    text-align: right;
+}
+
+[dir="rtl"] .user-details i {
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+[dir="rtl"] .add-user-btn i {
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+.navigationS {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-bg1-login);
+    padding: 10px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logoS {
+    display: flex;
+    align-items: center;
+}
+
+.logoS img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.logoS h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logoS .danger {
+    padding-left: 5px;
+    color: var(--color-blue1);
+}
+
+.navigationS li {
+    list-style: none;
+}
+
+.navigationS a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 24px;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.form-group input:disabled {
+    background-color: #f5f5f5 !important;
+    color: #999 !important;
+    border-color: #ddd !important;
+    cursor: not-allowed;
+}
